@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ALMOS | Rrjet Shërbimesh</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,210,110,.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(80,120,255,.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 75% 80%,
+            rgba(255,80,80,.10),
+            transparent 30%
+        ),
+        #fff;
+}
+
+
+/* LIBRAT NE SFOND */
+
+.book {
+    position: absolute;
+
+    width: 110px;
+    height: 160px;
+
+    border-radius: 8px 16px 16px 8px;
+
+    opacity: .18;
+
+    filter: blur(7px);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.15);
+}
+
+.book1 {
+    background: #e4a72e;
+    top: 15%;
+    left: 5%;
+    transform: rotate(-20deg);
+}
+
+.book2 {
+    background: #3977c7;
+    bottom: 15%;
+    left: 10%;
+    transform: rotate(25deg);
+}
+
+.book3 {
+    background: #c34c4c;
+    top: 13%;
+    right: 7%;
+    transform: rotate(25deg);
+}
+
+.book4 {
+    background: #4b9c73;
+    bottom: 7%;
+    right: 12%;
+    transform: rotate(-30deg);
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    width: 90%;
+    max-width: 1250px;
+
+    margin: 20px auto;
+
+    padding: 13px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 15px;
+
+    z-index: 1000;
+
+    background: rgba(255,255,255,.68);
+
+    backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(0,0,0,.07);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.07);
+}
+
+
+/* =========================
+   MINI LOGO
+========================= */
+
+.nav-logo {
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+.nav-logo span {
+    color: #e31318;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+
+    color: #333;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #e31318;
+}
+
+
+/* =========================
+   CONTACT BUTTON
+========================= */
+
+.contact-btn {
+    border: none;
+
+    cursor: pointer;
+
+    background: #111;
+
+    color: #fff;
+
+    padding: 12px 22px;
+
+    border-radius: 14px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+.contact-btn:hover {
+    background: #e31318;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(227,19,24,.25);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    width: 90%;
+    max-width: 1250px;
+
+    min-height: 85vh;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+
+/* =========================
+   HERO TEXT
+========================= */
+
+.hero-text {
+    max-width: 700px;
+}
+
+
+/* =========================
+   ALMOS MAIN LOGO
+========================= */
+
+.almos-logo {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px 0;
+
+    animation:
+        logoFloat 4s ease-in-out infinite;
+}
+
+
+/* TEKSTI I LOGOS */
+
+.logo-content {
+    text-align: center;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* RRJET SHERBIMESH */
+
+.logo-top {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(25px, 3vw, 38px);
+
+    font-weight: 900;
+
+    color: #111;
+
+    margin-bottom: 2px;
+
+    letter-spacing: 1px;
+}
+
+
+/* ALMOS / NET */
+
+.logo-name {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    line-height: .9;
+}
+
+
+/* ALMOS */
+
+.logo-name .almos {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(55px, 7vw, 82px);
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+    color: #e31318;
+
+    text-shadow:
+        0 0 4px rgba(227,19,24,.35);
+}
+
+
+/* NET */
+
+.logo-name .net {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(55px, 7vw, 82px);
+
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+    color: #111;
+
+    text-shadow:
+        0 0 4px rgba(0,0,0,.25);
+}
+
+
+/* SLASH */
+
+.logo-name .slash {
+    font-family: Arial, sans-serif;
+
+    font-size: clamp(70px, 8vw, 100px);
+
+    font-weight: 900;
+
+    color: #111;
+
+    margin: 0 6px;
+
+    transform: skewX(-18deg);
+}
+
+
+/* VIJA POSHTE */
+
+.logo-name::after {
+    content: "";
+
+    position: absolute;
+
+    left: 3%;
+
+    right: 3%;
+
+    bottom: -13px;
+
+    height: 7px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #e31318 0%,
+            #e31318 47%,
+            #111 53%,
+            #111 100%
+        );
+
+    transform: skewX(-25deg);
+
+    box-shadow:
+        0 0 7px rgba(227,19,24,.35),
+        0 0 10px rgba(0,0,0,.15);
+}
+
+
+/* =========================
+   LOGO ANET
+========================= */
+
+.logo-side {
+    position: relative;
+
+    width: 75px;
+
+    height: 125px;
+
+    flex-shrink: 0;
+}
+
+
+.logo-side span {
+    position: absolute;
+
+    display: block;
+
+    height: 7px;
+
+    border-radius: 5px;
+
+    transform: rotate(-58deg);
+}
+
+
+/* E KUQE */
+
+.logo-side span:nth-child(1) {
+    width: 90px;
+
+    background: #e31318;
+
+    top: 40px;
+
+    left: -5px;
+
+    box-shadow:
+        0 0 8px rgba(227,19,24,.55);
+}
+
+
+/* E ZEZA */
+
+.logo-side span:nth-child(2) {
+    width: 95px;
+
+    background: #111;
+
+    top: 57px;
+
+    left: -10px;
+
+    box-shadow:
+        0 0 5px rgba(0,0,0,.35);
+}
+
+
+/* E KUQE */
+
+.logo-side span:nth-child(3) {
+    width: 80px;
+
+    background: #e31318;
+
+    top: 74px;
+
+    left: 2px;
+
+    box-shadow:
+        0 0 8px rgba(227,19,24,.5);
+}
+
+
+.logo-side.left {
+    transform:
+        scaleX(-1)
+        rotate(-5deg);
+
+    margin-right: 5px;
+}
+
+
+.logo-side.right {
+    transform:
+        rotate(-5deg);
+
+    margin-left: 5px;
+}
+
+
+/* =========================
+   SHKELQIMI I LOGOS
+========================= */
+
+.almos-logo::after {
+    content: "";
+
+    position: absolute;
+
+    top: -30px;
+
+    left: -30%;
+
+    width: 45px;
+
+    height: 180%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.9),
+            transparent
+        );
+
+    transform: rotate(20deg);
+
+    filter: blur(5px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    animation:
+        shine 5s ease-in-out infinite;
+}
+
+
+/* =========================
+   HERO DESCRIPTION
+========================= */
+
+.hero-description {
+    margin-top: 40px;
+
+    max-width: 600px;
+
+    color: #666;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
+.hero-buttons {
+    margin-top: 30px;
+
+    display: flex;
+
+    gap: 15px;
+}
+
+
+.btn-main,
+.btn-second {
+
+    padding: 15px 25px;
+
+    border-radius: 15px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+
+.btn-main {
+    border: none;
+
+    cursor: pointer;
+
+    background: #111;
+
+    color: white;
+}
+
+.btn-main:hover {
+    background: #e31318;
+
+    transform: translateY(-4px);
+}
+
+
+.btn-second {
+    border: 1px solid #ddd;
+
+    background: rgba(255,255,255,.7);
+
+    color: #111;
+}
+
+.btn-second:hover {
+    transform: translateY(-4px);
+}
+
+
+/* =========================
+   BOOK CARD
+========================= */
+
+.hero-card {
+    width: 390px;
+    height: 500px;
+
+    border-radius: 40px;
+
+    background:
+        rgba(255,255,255,.58);
+
+    backdrop-filter:
+        blur(30px);
+
+    border:
+        1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.1);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.hero-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: #ffc759;
+
+    filter: blur(100px);
+
+    opacity: .25;
+
+    top: -100px;
+    right: -100px;
+}
+
+
+/* LIBRAT */
+
+.books-stack {
+    position: relative;
+
+    width: 240px;
+    height: 320px;
+}
+
+
+.real-book {
+    position: absolute;
+
+    width: 170px;
+    height: 240px;
+
+    padding: 23px;
+
+    border-radius:
+        8px 18px 18px 8px;
+
+    color: white;
+
+    box-shadow:
+        0 30px 50px rgba(0,0,0,.2);
+
+    transition: .4s;
+}
+
+
+.real-book:hover {
+    transform:
+        translateY(-15px)
+        rotate(0deg) !important;
+}
+
+
+.real-book h3 {
+    margin-top: 25px;
+
+    font-size: 25px;
+}
+
+
+.real-book p {
+    margin-top: 10px;
+
+    color: white;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+.rb1 {
+    background:
+        linear-gradient(
+            145deg,
+            #202020,
+            #4a4a4a
+        );
+
+    left: 0;
+
+    top: 45px;
+
+    transform: rotate(-12deg);
+}
+
+
+.rb2 {
+    background:
+        linear-gradient(
+            145deg,
+            #d89b2b,
+            #f5c65e
+        );
+
+    left: 75px;
+
+    top: 10px;
+
+    transform: rotate(7deg);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    width: 90%;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 100px 0;
+}
+
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+
+.section-title small {
+    color: #e31318;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+}
+
+
+.section-title h2 {
+    margin-top: 12px;
+
+    font-size: 45px;
+}
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.services {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 20px;
+}
+
+
+.service-card {
+    min-height: 280px;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.65);
+
+    backdrop-filter:
+        blur(25px);
+
+    border:
+        1px solid rgba(0,0,0,.06);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.05);
+
+    transition: .4s;
+}
+
+
+.service-card:hover {
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.1);
+}
+
+
+.icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 25px;
+
+    margin-bottom: 30px;
+}
+
+
+.service-card h3 {
+    font-size: 24px;
+
+    margin-bottom: 15px;
+}
+
+
+.service-card p {
+    color: #777;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   BANNER
+========================= */
+
+.banner {
+    padding: 65px;
+
+    border-radius: 40px;
+
+    background: #111;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.banner h2 {
+    font-size: 40px;
+
+    max-width: 650px;
+}
+
+
+.banner button {
+    border: none;
+
+    cursor: pointer;
+
+    background: white;
+
+    color: #111;
+
+    padding: 16px 28px;
+
+    border-radius: 15px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 60px 5%;
+
+    text-align: center;
+
+    color: #777;
+}
+
+
+footer strong {
+    color: #111;
+
+    font-size: 22px;
+
+    letter-spacing: 6px;
+}
+
+
+/* =================================================
+   CONTACT POPUP
+================================================= */
+
+.contact-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(0,0,0,.38);
+
+    backdrop-filter:
+        blur(15px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .35s;
+}
+
+
+.contact-overlay.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* CONTACT BOX */
+
+.contact-box {
+
+    width: 430px;
+
+    max-width: 90%;
+
+    padding: 38px;
+
+    border-radius: 32px;
+
+    background:
+        rgba(255,255,255,.94);
+
+    backdrop-filter:
+        blur(35px);
+
+    box-shadow:
+        0 40px 120px rgba(0,0,0,.3);
+
+    position: relative;
+
+    transform:
+        translateY(30px)
+        scale(.92);
+
+    transition: .4s;
+}
+
+
+.contact-overlay.active
+.contact-box {
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* CLOSE */
+
+.close-contact {
+
+    position: absolute;
+
+    right: 17px;
+
+    top: 17px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f1f1;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+
+.close-contact:hover {
+
+    background: #111;
+
+    color: white;
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* POPUP LOGO */
+
+.contact-logo {
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 32px;
+
+    font-weight: 900;
+
+    letter-spacing: 5px;
+}
+
+
+.contact-logo span {
+    color: #e31318;
+}
+
+
+.contact-subtitle {
+
+    text-align: center;
+
+    color: #777;
+
+    margin-top: 8px;
+
+    margin-bottom: 28px;
+}
+
+
+/* CONTACT ITEMS */
+
+.contact-items {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.contact-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    border-radius: 19px;
+
+    background:
+        rgba(255,255,255,.9);
+
+    border:
+        1px solid #eee;
+
+    color: #111;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+
+.contact-item:hover {
+
+    transform:
+        translateX(7px);
+
+    border-color:
+        #e31318;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.08);
+}
+
+
+.contact-icon {
+
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 21px;
+}
+
+
+.contact-item small {
+
+    display: block;
+
+    color: #888;
+
+    margin-bottom: 4px;
+
+    font-size: 12px;
+}
+
+
+.contact-item strong {
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes shine {
+
+    0% {
+        left: -35%;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .9;
+    }
+
+    35% {
+        left: 135%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 135%;
+        opacity: 0;
+    }
+}
+
+
+@keyframes logoFloat {
+
+    0%,100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-4px);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding:
+            80px 0;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero-card {
+        width: 100%;
+
+        max-width: 390px;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .banner {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .banner h2 {
+        font-size: 30px;
+    }
+
+    .almos-logo {
+        transform: scale(.85);
+    }
+}
+
+
+@media(max-width:550px) {
+
+    nav {
+        width: 94%;
+    }
+
+    .nav-logo {
+        font-size: 21px;
+    }
+
+    .contact-btn {
+        padding:
+            10px 14px;
+
+        font-size: 12px;
+    }
+
+    .almos-logo {
+        transform: scale(.65);
+    }
+
+    .hero {
+        padding-top: 60px;
+    }
+
+    .contact-box {
+        padding: 30px 20px;
+
+        border-radius: 25px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     BACKGROUND
+========================= -->
+
+<div class="background">
+
+    <div class="book book1"></div>
+    <div class="book book2"></div>
+    <div class="book book3"></div>
+    <div class="book book4"></div>
+
+</div>
+
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+    <div class="nav-logo">
+        ALM<span>OS</span>
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="#home">
+            Ballina
+        </a>
+
+        <a href="#sherbimet">
+            Shërbimet
+        </a>
+
+        <a href="#rrethnesh">
+            Rreth Nesh
+        </a>
+
+    </div>
+
+
+    <button
+        class="contact-btn"
+        onclick="openContact()">
+
+        Kontakto ALMOS
+
+    </button>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main
+    id="home"
+    class="hero">
+
+
+    <div class="hero-text">
+
+
+        <!-- LOGO I RI -->
+
+        <div class="almos-logo">
+
+
+            <div class="logo-side left">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+            <div class="logo-content">
+
+                <div class="logo-top">
+                    RRJET SHËRBIMESH
+                </div>
+
+
+                <div class="logo-name">
+
+                    <span class="almos">
+                        ALMOS
+                    </span>
+
+                    <span class="slash">
+                        /
+                    </span>
+
+                    <span class="net">
+                        NET
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="logo-side right">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <p class="hero-description">
+
+            Një rrjet shërbimesh ku reklama,
+            dizajni, printimi dhe libraria
+            bashkohen në një vend.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#sherbimet"
+                class="btn-main">
+
+                Shiko shërbimet
+
+            </a>
+
+
+            <button
+                class="btn-second"
+                onclick="openContact()">
+
+                Kontakto ALMOS
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         LIBRAT
+    ========================= -->
+
+    <div class="hero-card">
+
+        <div class="books-stack">
+
+
+            <div class="real-book rb1">
+
+                <small>
+                    ALMOS
+                </small>
+
+                <h3>
+                    IDE
+                </h3>
+
+                <p>
+                    Kreativitet që merr formë.
+                </p>
+
+            </div>
+
+
+            <div class="real-book rb2">
+
+                <small>
+                    ALMOS
+                </small>
+
+                <h3>
+                    LIBRA
+                </h3>
+
+                <p>
+                    Një botë e re në çdo faqe.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================
+     SHERBIMET
+========================= -->
+
+<section id="sherbimet">
+
+
+    <div class="section-title">
+
+        <small>
+            ÇFARË OFROJMË
+        </small>
+
+        <h2>
+            Shërbimet tona
+        </h2>
+
+    </div>
+
+
+    <div class="services">
+
+
+        <div class="service-card">
+
+            <div class="icon">
+                📚
+            </div>
+
+            <h3>
+                Librari
+            </h3>
+
+            <p>
+
+                Libra, fletore, materiale
+                shkollore, mjete zyre
+                dhe produkte kreative.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+            <div class="icon">
+                ✦
+            </div>
+
+            <h3>
+                Reklama
+            </h3>
+
+            <p>
+
+                Dizajn dhe realizim reklamash
+                moderne për biznese dhe
+                kompani.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+            <div class="icon">
+                ✎
+            </div>
+
+            <h3>
+                Dizajn & Print
+            </h3>
+
+            <p>
+
+                Kartëvizita, postera, banera
+                dhe materiale promocionale.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     BANNER
+========================= -->
+
+<section id="rrethnesh">
+
+    <div class="banner">
+
+        <h2>
+
+            Jepi idesë tënde
+            një pamje që mbahet mend.
+
+        </h2>
+
+
+        <button
+            onclick="openContact()">
+
+            Kontakto ALMOS
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <strong>
+        ALMOS / NET
+    </strong>
+
+    <p style="margin-top:15px;">
+        Rrjet Shërbimesh
+    </p>
+
+    <p
+        style="
+        margin-top:25px;
+        font-size:13px;
+        ">
+
+        © 2026 ALMOS.
+        Të gjitha të drejtat e rezervuara.
+
+    </p>
+
+</footer>
+
+
+
+<!-- =================================================
+     POPUP KONTAKT
+================================================= -->
+
+<div
+    class="contact-overlay"
+    id="contactPopup">
+
+
+    <div class="contact-box">
+
+
+        <button
+            class="close-contact"
+            onclick="closeContact()">
+
+            ×
+
+        </button>
+
+
+        <div class="contact-logo">
+
+            ALM<span>OS</span>
+
+        </div>
+
+
+        <p class="contact-subtitle">
+
+            Kontakto ekipin e ALMOS
+
+        </p>
+
+
+        <div class="contact-items">
+
+
+            <!-- TELEFON -->
+
+            <a
+                href="tel:+38344123456"
+                class="contact-item">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <div>
+
+                    <small>
+                        Telefon
+                    </small>
+
+                    <strong>
+                        +383 44 123 456
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="https://wa.me/38344123456"
+                target="_blank"
+                class="contact-item">
+
+                <div class="contact-icon">
+                    💬
+                </div>
+
+                <div>
+
+                    <small>
+                        WhatsApp
+                    </small>
+
+                    <strong>
+                        Na shkruaj në WhatsApp
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://instagram.com/almos"
+                target="_blank"
+                class="contact-item">
+
+                <div class="contact-icon">
+                    ◎
+                </div>
+
+                <div>
+
+                    <small>
+                        Instagram
+                    </small>
+
+                    <strong>
+                        @almos
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- EMAIL -->
+
+            <a
+                href="mailto:info@almos.com"
+                class="contact-item">
+
+                <div class="contact-icon">
+                    ✉
+                </div>
+
+                <div>
+
+                    <small>
+                        Email
+                    </small>
+
+                    <strong>
+                        info@almos.com
+                    </strong>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   HAP KONTAKTET
+========================= */
+
+function openContact() {
+
+    document
+        .getElementById("contactPopup")
+        .classList
+        .add("active");
+
+}
+
+
+/* =========================
+   MBYLL KONTAKTET
+========================= */
+
+function closeContact() {
+
+    document
+        .getElementById("contactPopup")
+        .classList
+        .remove("active");
+
+}
+
+
+/* =========================
+   KLIKIM JASHTË
+========================= */
+
+document
+    .getElementById("contactPopup")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+
+                closeContact();
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   ESC
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeContact();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
